@@ -12,9 +12,9 @@ import * as React from 'react';
 import {GreetingScreen} from './screens/GreetingScreen';
 
 const App = () => {
-  return (
-    <GreetingScreen/>
-  );
+    return (
+        <GreetingScreen/>
+    );
 };
 
 
