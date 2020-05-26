@@ -9,11 +9,16 @@
  */
 
 import * as React from 'react';
-import {GreetingScreen} from './screens/GreetingScreen';
+import {NavigationContainer} from '@react-navigation/native';
+import {RootScreenMap, RootStack} from './Navigations/RootNavigator/RootNavigator';
 
 const App = () => {
     return (
-        <GreetingScreen/>
+        <NavigationContainer>
+            <RootStack.Navigator>
+                {RootScreenMap()}
+            </RootStack.Navigator>
+        </NavigationContainer>
     );
 };
 
