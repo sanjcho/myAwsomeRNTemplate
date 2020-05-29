@@ -1,13 +1,7 @@
-import {applyMiddleware, configureStore, createStore, getDefaultMiddleware} from '@reduxjs/toolkit';
+import {applyMiddleware, createStore} from '@reduxjs/toolkit';
 import {
     persistStore, //
     persistReducer,
-    FLUSH,
-    REHYDRATE,
-    PAUSE,
-    PERSIST,
-    PURGE,
-    REGISTER,
 } from 'redux-persist';
 import AsyncStorage from '@react-native-community/async-storage';
 import thunk from 'redux-thunk';
