@@ -9,14 +9,21 @@
  */
 
 import * as React from 'react';
-import {SafeAreaView, ScrollView, StatusBar, Text, View} from 'react-native';
+import {Button, SafeAreaView, ScrollView, StatusBar, Text, View} from 'react-native';
 
 import {DebugInstructions, Header, LearnMoreLinks, ReloadInstructions} from 'react-native/Libraries/NewAppScreen';
 import {styles} from './styles';
+import {useDispatch} from 'react-redux';
+import {greetingAction} from './redux/actions';
+import {useCallback} from 'react';
 
+// check if using hermes https://reactnative.dev/docs/hermes
 declare const global: {HermesInternal: null | {}};
 
 export const GreetingScreen = () => {
+    const dispatch = useDispatch();
+    const dispatchTestAction = useCallback(() => dispatch(greetingAction('hello')), []);
+
     return (
         <>
             <StatusBar barStyle="dark-content" />
@@ -28,6 +35,7 @@ export const GreetingScreen = () => {
                             <Text style={styles.footer}>Engine: Hermes</Text>
                         </View>
                     )}
+                    <Button title={'dispatch test action'} onPress={dispatchTestAction} />
                     <View style={styles.body}>
                         <View style={styles.sectionContainer}>
                             <Text style={styles.sectionTitle}>Step One</Text>

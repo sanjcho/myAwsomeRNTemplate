@@ -9,18 +9,24 @@
  */
 
 import * as React from 'react';
+import {Provider} from 'react-redux';
 import {NavigationContainer} from '@react-navigation/native';
 import {RootScreenMap, RootStack} from './Navigations/RootNavigator/RootNavigator';
+import {configureAppStore} from './ReduxCore/configureStore';
+import {PersistGate} from 'redux-persist/integration/react';
 
 const App = () => {
+    const {store, persistor} = configureAppStore();
+
     return (
-        <NavigationContainer>
-            <RootStack.Navigator>
-                {RootScreenMap()}
-            </RootStack.Navigator>
-        </NavigationContainer>
+        <Provider store={store}>
+            <PersistGate persistor={persistor}>
+                <NavigationContainer>
+                    <RootStack.Navigator>{RootScreenMap()}</RootStack.Navigator>
+                </NavigationContainer>
+            </PersistGate>
+        </Provider>
     );
 };
-
 
 export default App;
