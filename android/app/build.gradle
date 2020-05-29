@@ -129,7 +129,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.myawesomeboilerplate"
+        applicationId "com.myawesometemplate"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
